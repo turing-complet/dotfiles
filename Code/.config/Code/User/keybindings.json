@@ -3,5 +3,9 @@
     {
         "key": "ctrl+shift+/",
         "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "ctrl+alt+q",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
