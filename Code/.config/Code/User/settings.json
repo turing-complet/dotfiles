@@ -20,16 +20,6 @@
             "emptyPasswordInput": false,
             "savePassword": true,
             "profileName": "sql1"
-        },
-        {
-            "server": "greedisland.database.windows.net",
-            "database": "kaggledb",
-            "authenticationType": "SqlLogin",
-            "user": "bomber",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "kaggle"
         }
     ],
     "window.titleBarStyle": "custom",
@@ -38,6 +28,9 @@
     "editor.renderControlCharacters": true,
     "explorer.confirmDragAndDrop": false,
     "powershell.scriptAnalysis.settingsPath": "/home/jon/code/PsScriptSettings.psd1",
-    "omnisharp.path": "latest",
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "workbench.editor.enablePreview": false,
+    "vim.handleKeys": {
+        "<C-w>": false
+    }
 }

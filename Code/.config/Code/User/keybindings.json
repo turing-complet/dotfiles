@@ -7,5 +7,9 @@
     {
         "key": "ctrl+alt+q",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+k ctrl+t",
+        "command": "workbench.action.selectTheme"
     }
 ]
