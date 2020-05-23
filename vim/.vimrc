@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+syntax enable
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -17,6 +18,15 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+runtime! ftplugin/man.vim
+
+"tab completion on sub folders
+set path +=**
+
+"show all tab complete results
+set wildmenu
+set incsearch
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -29,6 +39,9 @@ cmap jj <Esc>
 cmap kj <Esc>
 set rnu " relative line numbering
 
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -38,7 +51,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-" set hlsearch incsearch
+abbr pymain if __name__ == '__main__':
 
 " An example for a vimrc file.
 "
