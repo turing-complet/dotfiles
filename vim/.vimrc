@@ -33,6 +33,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"cycle buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 imap jj <Esc>
 imap kj <Esc>
 cmap jj <Esc>
@@ -41,6 +45,8 @@ set rnu " relative line numbering
 
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
