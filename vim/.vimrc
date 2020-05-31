@@ -1,6 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax enable
+set nobackup
+set nowritebackup
+set splitright
+set splitbelow
+set autoread
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -35,11 +40,6 @@ set wildmenu
 set incsearch
 
 let mapleader=" "
-
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
