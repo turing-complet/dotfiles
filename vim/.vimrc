@@ -2,6 +2,13 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax enable
 
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+nnoremap <C-p> :GFiles<CR>
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,6 +34,13 @@ set path +=**
 set wildmenu
 set incsearch
 
+let mapleader=" "
+
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -35,7 +49,7 @@ nnoremap <C-H> <C-W><C-H>
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+"nnoremap <C-p> :bprevious<CR>
 
 imap jj <Esc>
 imap kj <Esc>
