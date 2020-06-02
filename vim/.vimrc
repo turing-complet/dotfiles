@@ -1,3 +1,8 @@
+set nocompatible              " be iMproved, required
+syntax enable
+set noswapfile
+set nobackup
+set nowritebackup
 set undodir=~/.vim/undodir
 set undofile
 set splitright
