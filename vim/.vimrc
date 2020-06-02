@@ -21,33 +21,20 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 " Plug 'tpope/vim-fugative'
 Plug 'vim-utils/vim-man'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
-function! BuildYCM(info)
-	" info is a dictionary with 3 fields
-	" - name:   name of the plugin
-	" - status: 'installed', 'updated', or 'unchanged'
-	" - force:  set on PlugInstall! or PlugUpdate!
-	if a:info.status == 'installed' || a:info.force
-		!./install.py
-	endif
-endfunction
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
 nnoremap <C-p> :GFiles<CR>
 
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 
 "tab completion on sub folders
 set path +=**
 
-let mapleader=" "
+let mapleader=","
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -58,6 +45,8 @@ nnoremap <C-H> <C-W><C-H>
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
 "nnoremap <C-p> :bprevious<CR>
+
+map <C-b> :NERDTreeToggle<CR>
 
 imap jj <Esc>
 imap kj <Esc>
@@ -75,6 +64,51 @@ au BufNewFile,BufRead *.py
 			\ set fileformat=unix
 
 abbr pymain if __name__ == '__main__':
+
+" ================ coc.nvim =================
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
 
 " An example for a vimrc file.
 "
