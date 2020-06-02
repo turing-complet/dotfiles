@@ -25,10 +25,18 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+map :Vs :vs
+map :Sp :sp
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
 "nnoremap <C-p> :bprevious<CR>
 
+nnoremap <leader>r :so ~/.vimrc<CR>
 
 call plug#begin('~/.vim/plugged')
 
@@ -46,7 +54,6 @@ call plug#end()
 "set background=dark
 "colorscheme gruvbox 
 
-" let g:gruvbox_diffmode="high"
 
 "tab completion on sub folders
 set path +=**
@@ -62,6 +69,11 @@ au BufNewFile,BufRead *.py
 			\ set fileformat=unix
 
 abbr pymain if __name__ == '__main__':
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+	set mouse=a
+endif
 
 " ================ fzf =================
 nnoremap <C-p> :GFiles<CR>
@@ -97,8 +109,6 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
