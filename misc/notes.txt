@@ -7,3 +7,7 @@ omf install 'https://github.com/sentriz/fish-pipenv'
 
 seems to only work from ~ dir
 ln -s dotfiles/.vimrc .vimrc
+
+set DEST ~/.aaron-williamson-alacritty-theme
+alacritty-colorscheme -C $DEST/colors -l
+alacritty-colorscheme -C $DEST/colors -t <theme>.yml

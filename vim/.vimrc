@@ -1,8 +1,3 @@
-set nocompatible              " be iMproved, required
-syntax enable
-set noswapfile
-set nobackup
-set nowritebackup
 set undodir=~/.vim/undodir
 set undofile
 set splitright
@@ -14,25 +9,13 @@ set shiftwidth=4
 set wildmenu
 set incsearch
 set autoindent
+set rnu " relative line numbering
 filetype plugin indent on
-" let g:netrw_banner = 0
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-" Plug 'tpope/vim-fugative'
-Plug 'vim-utils/vim-man'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
-nnoremap <C-p> :GFiles<CR>
-
-
-"tab completion on sub folders
-set path +=**
+imap jj <Esc>
+imap kj <Esc>
+cmap jj <Esc>
+cmap kj <Esc>
 
 let mapleader=","
 
@@ -46,13 +29,28 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-n> :bnext<CR>
 "nnoremap <C-p> :bprevious<CR>
 
-map <C-b> :NERDTreeToggle<CR>
 
-imap jj <Esc>
-imap kj <Esc>
-cmap jj <Esc>
-cmap kj <Esc>
-set rnu " relative line numbering
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-utils/vim-man'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
+
+call plug#end()
+
+"set background=dark
+"colorscheme gruvbox 
+
+" let g:gruvbox_diffmode="high"
+
+"tab completion on sub folders
+set path +=**
+
 
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
@@ -64,6 +62,14 @@ au BufNewFile,BufRead *.py
 			\ set fileformat=unix
 
 abbr pymain if __name__ == '__main__':
+
+" ================ fzf =================
+nnoremap <C-p> :GFiles<CR>
+
+
+" ================ nerdtree =================
+map <C-b> :NERDTreeToggle<CR>
+
 
 " ================ coc.nvim =================
 

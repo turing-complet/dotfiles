@@ -172,41 +172,41 @@
 
 # Colors (Tomorrow Night Bright)
 # color_start
-# base16-material-palenight.yml
-# Base16 Material Palenight - alacritty color config
-# Nate Peterson
+# base16-gruvbox-dark-hard.yml
+# Base16 Gruvbox dark, hard - alacritty color config
+# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 colors:
   # Default colors
   primary:
-    background: '0x292d3e'
-    foreground: '0x959dcb'
+    background: '0x1d2021'
+    foreground: '0xd5c4a1'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x292d3e'
-    cursor: '0x959dcb'
+    text: '0x1d2021'
+    cursor: '0xd5c4a1'
 
   # Normal colors
   normal:
-    black:   '0x292d3e'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0x959dcb'
+    black:   '0x1d2021'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xd5c4a1'
 
   # Bright colors
   bright:
-    black:   '0x676e95'
-    red:     '0xf78c6c'
-    green:   '0x444267'
-    yellow:  '0x32374d'
-    blue:    '0x8796b0'
-    magenta: '0x959dcb'
-    cyan:    '0xff5370'
-    white:   '0xffffff'
+    black:   '0x665c54'
+    red:     '0xfe8019'
+    green:   '0x3c3836'
+    yellow:  '0x504945'
+    blue:    '0xbdae93'
+    magenta: '0xebdbb2'
+    cyan:    '0xd65d0e'
+    white:   '0xfbf1c7'
 
 draw_bold_text_with_bright_colors: false
 
