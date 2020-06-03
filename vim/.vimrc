@@ -43,6 +43,12 @@ nnoremap <C-n> :bnext<CR>
 
 nnoremap <leader>r :so ~/.vimrc<CR>
 
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with spacebar
+nnoremap <space> za
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -51,6 +57,10 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'cespare/vim-toml'
+
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 
@@ -79,6 +89,9 @@ abbr pymain if __name__ == '__main__':
 if has('mouse')
 	set mouse=a
 endif
+
+" ================ tagbar  =================
+nmap <F8> :TagbarToggle<CR>
 
 " ================ fzf =================
 nnoremap <C-p> :GFiles<CR>
