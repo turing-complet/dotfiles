@@ -2,6 +2,7 @@
 misc:
 	sudo cp viman /usr/bin/viman
 	sudo chmod +x /usr/bin/viman
+	./install.fish
 
 .PHONY: update-plugins
 update-plugins:
