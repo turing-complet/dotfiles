@@ -35,7 +35,9 @@ map :Sp :sp
 
 " Fast saving
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
 
+nnoremap ; :
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
@@ -60,7 +62,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'cespare/vim-toml'
-
+Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 
