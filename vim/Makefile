@@ -5,7 +5,7 @@ misc:
 	./install.fish
 
 .PHONY: update-plugins
-update-plugins:
+update-plugins: init
 	vim +PlugInstall
 
 .PHONY: init
