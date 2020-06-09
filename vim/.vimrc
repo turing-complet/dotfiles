@@ -16,6 +16,8 @@ set incsearch
 set autoindent
 set rnu " relative line numbering
 filetype plugin indent on
+set clipboard=unnamedplus
+" set laststatus=2
 
 imap jj <Esc>
 imap kj <Esc>
@@ -65,7 +67,7 @@ Plug 'cespare/vim-toml'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
-
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 "set background=dark
@@ -145,13 +147,13 @@ function! s:show_documentation()
 	endif
 endfunction
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)

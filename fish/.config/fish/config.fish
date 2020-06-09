@@ -20,3 +20,4 @@ alias python3 python3.8
 set DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 alias kubectl="microk8s kubectl"
+alias vimrc="vim ~/dotfiles/vim/.vimrc"
