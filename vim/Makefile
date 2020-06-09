@@ -6,7 +6,8 @@ misc:
 
 .PHONY: update-plugins
 update-plugins: init
-	vim +PlugInstall
+	vim -c ':PlugInstall'
+	vim -c ':Tmuxline zenburn'
 
 .PHONY: init
 init:

@@ -43,7 +43,7 @@ nnoremap ; :
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
-"nnoremap <C-p> :bprevious<CR>
+nnoremap <C-p> :bprevious<CR>
 
 nnoremap <leader>r :so ~/.vimrc<CR>
 
@@ -68,6 +68,7 @@ Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 "set background=dark
@@ -98,7 +99,8 @@ endif
 nmap <F8> :TagbarToggle<CR>
 
 " ================ fzf =================
-nnoremap <C-p> :GFiles<CR>
+" nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>p  :GFiles<CR>
 
 
 " ================ nerdtree =================
