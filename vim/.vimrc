@@ -69,6 +69,7 @@ Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 "set background=dark
@@ -94,6 +95,10 @@ abbr pymain if __name__ == '__main__':
 if has('mouse')
 	set mouse=a
 endif
+
+" ================ black  =================
+autocmd BufWritePre *.py execute ':Black'
+nnoremap <F9> :Black<CR>
 
 " ================ tagbar  =================
 nmap <F8> :TagbarToggle<CR>
