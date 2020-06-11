@@ -106,10 +106,11 @@ nmap <F8> :TagbarToggle<CR>
 " ================ fzf =================
 " nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p  :GFiles<CR>
-
+nnoremap <C-g> :Rg<CR>
 
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>
+map <leader>b :NERDTreeFind<CR>
 
 
 " ================ coc.nvim =================

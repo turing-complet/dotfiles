@@ -21,3 +21,5 @@ set DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 alias kubectl="microk8s kubectl"
 alias vimrc="vim ~/dotfiles/vim/.vimrc"
+
+set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
