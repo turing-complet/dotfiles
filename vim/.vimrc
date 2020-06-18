@@ -14,7 +14,7 @@ set shiftwidth=4
 set wildmenu
 set incsearch
 set autoindent
-set rnu " relative line numbering
+set number rnu " relative line numbering
 filetype plugin indent on
 set clipboard=unnamedplus
 " set laststatus=2
@@ -39,7 +39,8 @@ map :Sp :sp
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 
-nnoremap ; :
+" ; is useful for jumping within a line
+" nnoremap ; :
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
