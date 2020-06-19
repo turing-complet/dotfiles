@@ -71,10 +71,11 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'vim-python/python-syntax'
 call plug#end()
 
-"set background=dark
-"colorscheme gruvbox 
+set background=dark
+colorscheme gruvbox 
 
 
 "tab completion on sub folders
@@ -112,7 +113,8 @@ nnoremap <C-g> :Rg<CR>
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>
 map <leader>b :NERDTreeFind<CR>
-
+let g:NERDTreeShowHidden=1
+let g:NERDTreeAutoDeleteBuffer=1
 
 " ================ coc.nvim =================
 
