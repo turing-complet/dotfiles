@@ -35,6 +35,12 @@ nnoremap <C-H> <C-W><C-H>
 map :Vs :vs
 map :Sp :sp
 
+" close current buffer
+nnoremap <leader>c :bp\|bd #<CR>
+
+" enable pasting to actually work
+set pastetoggle=<F2>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
