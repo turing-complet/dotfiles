@@ -78,6 +78,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
+" Plug 'jceb/vim-orgmode'
 call plug#end()
 
 set background=dark
@@ -104,8 +105,12 @@ if has('mouse')
 	set mouse=a
 endif
 
+" ============== python-syntax ===============
+let g:python_highlight_all = 1
+let g:python_version_2 = 0
+
 " ================ black  =================
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
 nnoremap <F9> :Black<CR>
 
 " ================ tagbar  =================
@@ -170,6 +175,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
