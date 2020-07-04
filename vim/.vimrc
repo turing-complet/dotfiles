@@ -27,7 +27,7 @@ cmap jj <Esc>
 cmap kj <Esc>
 
 let mapleader=","
-" let maplocalleader="\\"
+let maplocalleader="\\"
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -82,12 +82,10 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
 " Plug 'jceb/vim-orgmode'
-" Plug 'jupyter-vim/jupyter-vim'
 
+Plug 'jupyter-vim/jupyter-vim' 
 Plug 'benmills/vimux'
-Plug 'greghor/vim-pyShell'
-Plug 'julienr/vim-cellmode'
-
+" Plug 'julienr/vim-cellmode'
 
 call plug#end()
 
@@ -117,11 +115,18 @@ endif
 
 
 " ============== ipython-shell ===============
-noremap <leader>ss :call StartPyShell()<CR>
-noremap <leader>sk :call StopPyShell()<CR>
 
 
-" ============== python cells ===============
+function! StartPyShell()
+    call VimuxRunCommand("ipython")
+endfunction
+
+function! PyShellSendLine()
+  let line = substitute(substitute(escape(escape(getline('.'),'\'),'`'),"\t","  ",'g')," *$","",'g')
+    call VimuxRunCommand(line)
+endfunction
+
+noremap <leader>ss :call StartPyShell()<CR> 
 nnoremap <leader>l  :call PyShellSendLine()<CR>
 
 " lies
