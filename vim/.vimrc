@@ -16,7 +16,9 @@ set incsearch
 set autoindent
 set number rnu " relative line numbering
 filetype plugin indent on
-set clipboard=unnamedplus
+
+" vmap <silent> y y:call system("wl-copy", @@)<CR>
+" set clipboard=unnamedplus
 " set laststatus=2
 
 imap jj <Esc>
@@ -25,6 +27,7 @@ cmap jj <Esc>
 cmap kj <Esc>
 
 let mapleader=","
+" let maplocalleader="\\"
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -73,12 +76,19 @@ Plug 'majutsushi/tagbar'
 Plug 'cespare/vim-toml'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
 " Plug 'jceb/vim-orgmode'
+" Plug 'jupyter-vim/jupyter-vim'
+
+Plug 'benmills/vimux'
+Plug 'greghor/vim-pyShell'
+Plug 'julienr/vim-cellmode'
+
+
 call plug#end()
 
 set background=dark
@@ -105,27 +115,45 @@ if has('mouse')
 	set mouse=a
 endif
 
+
+" ============== ipython-shell ===============
+noremap <leader>ss :call StartPyShell()<CR>
+noremap <leader>sk :call StopPyShell()<CR>
+
+
+" ============== python cells ===============
+nnoremap <leader>l  :call PyShellSendLine()<CR>
+
+" lies
+" noremap <silent> <C-n> :call RunTmuxPythonCell(0)<CR>
+" noremap <C-x> :call RunTmuxPythonAllCellsAbove()<CR>
+
+
 " ============== python-syntax ===============
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
+
 
 " ================ black  =================
 " autocmd BufWritePre *.py execute ':Black'
 nnoremap <F9> :Black<CR>
 
+
 " ================ tagbar  =================
 nmap <F8> :TagbarToggle<CR>
 
+
 " ================ fzf =================
-" nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p  :GFiles<CR>
-nnoremap <C-g> :Rg<CR>
+nnoremap <leader>g :Rg<CR>
+
 
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>
 map <leader>b :NERDTreeFind<CR>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1
+
 
 " ================ coc.nvim =================
 
