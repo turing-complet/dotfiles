@@ -83,14 +83,12 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
 " Plug 'jceb/vim-orgmode'
 
-Plug 'jupyter-vim/jupyter-vim' 
+" Plug 'jupyter-vim/jupyter-vim' 
 Plug 'benmills/vimux'
 " Plug 'julienr/vim-cellmode'
 
 call plug#end()
 
-set background=dark
-colorscheme gruvbox 
 
 
 "tab completion on sub folders
@@ -113,6 +111,10 @@ if has('mouse')
 	set mouse=a
 endif
 
+" ============== gruvbox ===============
+let g:gruvbox_invert_selection='0'
+set background=dark
+colorscheme gruvbox 
 
 " ============== ipython-shell ===============
 
