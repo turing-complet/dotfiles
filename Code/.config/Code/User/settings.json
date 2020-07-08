@@ -7,7 +7,7 @@
     "window.zoomLevel": 0,
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
-    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.colorTheme": "ENCOM",
     "workbench.panel.defaultLocation": "right",
     "python.pythonPath": "/home/jon/.local/share/virtualenvs/oura-xcNd5ClA/bin/python",
     "mssql.connections": [
