@@ -25,6 +25,11 @@ imap jj <Esc>
 imap kj <Esc>
 cmap jj <Esc>
 cmap kj <Esc>
+vmap jj <Esc>
+vmap kj <Esc>
+
+noremap 8 ^
+noremap 9 g$
 
 let mapleader=","
 let maplocalleader="\\"
