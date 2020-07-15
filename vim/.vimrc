@@ -84,6 +84,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
+Plug 'jlanzarotta/bufexplorer'
 " Plug 'jceb/vim-orgmode'
 
 " Plug 'jupyter-vim/jupyter-vim' 
@@ -142,6 +143,11 @@ nnoremap <leader>l  :call PyShellSendLine()<CR>
 " ============== python-syntax ===============
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
+
+
+" ================ fugative  =================
+nnoremap <leader>gs :Gstatus
+nnoremap <leader>gdf :Gdiffsplit
 
 
 " ================ black  =================
