@@ -18,15 +18,13 @@ set number rnu " relative line numbering
 filetype plugin indent on
 
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 " set laststatus=2
 
 imap jj <Esc>
 imap kj <Esc>
 cmap jj <Esc>
 cmap kj <Esc>
-vmap jj <Esc>
-vmap kj <Esc>
 
 noremap 8 ^
 noremap 9 g$
