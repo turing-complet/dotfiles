@@ -93,7 +93,7 @@ Plug 'benmills/vimux'
 
 call plug#end()
 
-
+let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
 "tab completion on sub folders
 set path +=**

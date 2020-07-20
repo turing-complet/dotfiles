@@ -7,7 +7,8 @@ function weather
 end
 
 alias dc="docker-compose"
-set PATH /home/jon/.local/bin $PATH
+set PATH ~/.local/bin $PATH
+set PATH ~/.pyenv/bin $PATH
 set -x GOPATH /home/jon/code/golang
 alias python3 python3.8
 
@@ -19,3 +20,4 @@ alias kubectl="microk8s kubectl"
 alias vimrc="vim ~/dotfiles/vim/.vimrc"
 alias vim=nvim
 set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
+pyenv init - | source

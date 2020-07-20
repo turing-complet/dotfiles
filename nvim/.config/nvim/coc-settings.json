@@ -1,0 +1,3 @@
+{
+	"python.jediPath": "~/.pyenv/versions/venv-tools/lib/python3.8/site-packages/jedi"
+}
