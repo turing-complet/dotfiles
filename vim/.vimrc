@@ -19,15 +19,12 @@ filetype plugin indent on
 
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
 set clipboard=unnamedplus
-" set laststatus=2
 
 imap jj <Esc>
 imap kj <Esc>
 cmap jj <Esc>
 cmap kj <Esc>
 
-noremap 8 ^
-noremap 9 g$
 
 let mapleader=","
 let maplocalleader="\\"
@@ -79,19 +76,17 @@ Plug 'majutsushi/tagbar'
 Plug 'cespare/vim-toml'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
-" Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'vim-python/python-syntax'
 Plug 'jlanzarotta/bufexplorer'
-" Plug 'jceb/vim-orgmode'
-
-" Plug 'jupyter-vim/jupyter-vim' 
-Plug 'benmills/vimux'
-" Plug 'julienr/vim-cellmode'
-
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 call plug#end()
+
+" search selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
@@ -122,28 +117,33 @@ colorscheme gruvbox
 
 " ============== ipython-shell ===============
 
+let g:slime_target = 'tmux'
 
-function! StartPyShell()
-    call VimuxRunCommand("ipython")
-endfunction
+" fix paste issues in ipython
+let g:slime_python_ipython = 1
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
 
-function! PyShellSendLine()
-  let line = substitute(substitute(escape(escape(getline('.'),'\'),'`'),"\t","  ",'g')," *$","",'g')
-    call VimuxRunCommand(line)
-endfunction
+nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
+nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+nnoremap [c :IPythonCellPrevCell<CR>
+nnoremap ]c :IPythonCellNextCell<CR>
+nmap <Leader>h <Plug>SlimeLineSend
+xmap <Leader>h <Plug>SlimeRegionSend
 
-noremap <leader>ss :call StartPyShell()<CR> 
-nnoremap <leader>l  :call PyShellSendLine()<CR>
-
-" lies
-" noremap <silent> <C-n> :call RunTmuxPythonCell(0)<CR>
-" noremap <C-x> :call RunTmuxPythonAllCellsAbove()<CR>
+" map <Leader>x to close all Matplotlib figure windows
+nnoremap <Leader>x :IPythonCellClose<CR>
 
 
 " ============== python-syntax ===============
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
 
+
+" ================ fugative  =================
+let g:airline#extensions#coc#enabled ='0'
 
 " ================ fugative  =================
 nnoremap <leader>gs :Gstatus
