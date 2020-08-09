@@ -136,14 +136,18 @@ xmap <Leader>h <Plug>SlimeRegionSend
 " map <Leader>x to close all Matplotlib figure windows
 nnoremap <Leader>x :IPythonCellClose<CR>
 
+" conflict with reloading vimrc
+" nnoremap <Leader>r :IPythonCellRun<CR>
 
 " ============== python-syntax ===============
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
 
 
-" ================ fugative  =================
-let g:airline#extensions#coc#enabled ='0'
+" ================ airline  =================
+let g:airline#extensions#coc#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 0
+
 
 " ================ fugative  =================
 nnoremap <leader>gs :Gstatus
