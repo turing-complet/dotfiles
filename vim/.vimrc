@@ -1,4 +1,3 @@
-set nocompatible              " be iMproved, required
 syntax enable
 set noswapfile
 set nobackup
@@ -67,6 +66,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
@@ -127,7 +127,7 @@ let g:slime_default_config = {
 let g:slime_dont_ask_default = 1
 
 nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
-nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+nnoremap <Leader>e :IPythonCellExecuteCell<CR>
 nnoremap [c :IPythonCellPrevCell<CR>
 nnoremap ]c :IPythonCellNextCell<CR>
 nmap <Leader>h <Plug>SlimeLineSend
@@ -167,6 +167,9 @@ nmap <F8> :TagbarToggle<CR>
 nnoremap <leader>p  :GFiles<CR>
 nnoremap <leader>g :Rg<CR>
 
+
+" ================ fzf-checkout =================
+nnoremap <leader>gc :GCheckout<CR>
 
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>

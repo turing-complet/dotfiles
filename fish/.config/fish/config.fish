@@ -21,3 +21,4 @@ alias vimrc="vim ~/dotfiles/vim/.vimrc"
 alias vim=nvim
 set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
 pyenv init - | source
+fish_vi_key_bindings
