@@ -83,6 +83,7 @@ Plug 'vim-python/python-syntax'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " search selected text
@@ -138,6 +139,12 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 
 " conflict with reloading vimrc
 " nnoremap <Leader>r :IPythonCellRun<CR>
+
+
+" ============== markdown-preview ===============
+let g:mkdp_refresh_slow=1
+let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
+
 
 " ============== python-syntax ===============
 let g:python_highlight_all = 1
