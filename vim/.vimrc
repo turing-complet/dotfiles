@@ -18,6 +18,7 @@ filetype plugin indent on
 
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
 set clipboard=unnamedplus
+xnoremap p pgvy
 
 imap jj <Esc>
 imap kj <Esc>
