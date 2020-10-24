@@ -99,6 +99,9 @@ set path +=**
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 au BufNewFile,BufRead *.py
 			\ set shiftwidth=4 |
 			\ set textwidth=79 |
