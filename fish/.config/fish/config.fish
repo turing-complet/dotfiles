@@ -19,6 +19,7 @@ set DOTNET_CLI_TELEMETRY_OPTOUT 1
 alias kubectl="microk8s kubectl"
 alias vimrc="vim ~/dotfiles/vim/.vimrc"
 alias vim=nvim
+alias gb="git branch -vv"
 set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
 pyenv init - | source
 fish_vi_key_bindings
