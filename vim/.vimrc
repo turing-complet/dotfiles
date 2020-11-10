@@ -86,6 +86,7 @@ Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mhinz/vim-startify'
+Plug 'puremourning/vimspector'
 call plug#end()
 
 " search selected text
@@ -116,12 +117,36 @@ if has('mouse')
 	set mouse=a
 endif
 
+" ============== vimspector ===============
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorRestart
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+
+
 " ============== gruvbox ===============
 let g:gruvbox_invert_selection='0'
 set background=dark
 colorscheme gruvbox 
 
-" ============== ipython-shell ===============
+
+" ============== ipython-cell ===============
 
 let g:slime_target = 'tmux'
 
@@ -182,6 +207,7 @@ nnoremap <leader>g :Rg<CR>
 
 " ================ fzf-checkout =================
 nnoremap <leader>gc :GCheckout<CR>
+
 
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>
