@@ -1,3 +1,10 @@
+let need_to_install_plugins = 0
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	let need_to_install_plugins = 1
+endif
+
 syntax enable
 set noswapfile
 set nobackup
@@ -87,7 +94,19 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mhinz/vim-startify'
 Plug 'puremourning/vimspector'
+
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'dense-analysis/ale'
 call plug#end()
+
+if need_to_install_plugins == 1
+	echo "Installing plugins..."
+	silent! PlugInstall
+	echo "Done!"
+	q
+endif
 
 " search selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -184,6 +203,7 @@ let g:python_version_2 = 0
 " ================ airline  =================
 let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 
 
 " ================ fugative  =================
