@@ -95,6 +95,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'mhinz/vim-startify'
 Plug 'puremourning/vimspector'
 
+Plug 'joshdick/onedark.vim'
+Plug 'altercation/vim-colors-solarized'
+
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'jiangmiao/auto-pairs'
@@ -159,11 +162,14 @@ nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 
 
-" ============== gruvbox ===============
+" ============== colors ===============
 let g:gruvbox_invert_selection='0'
 set background=dark
-colorscheme gruvbox 
+" colorscheme gruvbox
+colorscheme onedark
 
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " ============== ipython-cell ===============
 
