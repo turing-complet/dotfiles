@@ -244,6 +244,8 @@ let g:NERDTreeAutoDeleteBuffer=1
 
 " ================ coc.nvim =================
 
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
+
 " Give more space for displaying messages.
 set cmdheight=2
 
