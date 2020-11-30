@@ -241,6 +241,12 @@ map <leader>b :NERDTreeFind<CR>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1
 
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+
+" Prevent crashes? from https://github.com/preservim/nerdtree/wiki
+let g:plug_window = 'noautocmd vertical topleft new'
+
 
 " ================ coc.nvim =================
 
