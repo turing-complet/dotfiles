@@ -19,6 +19,7 @@ set softtabstop=4
 set shiftwidth=4
 set wildmenu
 set incsearch
+set ignorecase " case insensitive search
 set autoindent
 set number rnu " relative line numbering
 filetype plugin indent on
