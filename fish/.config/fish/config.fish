@@ -11,6 +11,7 @@ set PATH ~/.local/bin $PATH
 set PATH ~/.pyenv/bin $PATH
 set -x GOPATH /home/jon/code/golang
 alias python3 python3.8
+alias python python3
 set -x PYTHONBREAKPOINT ipdb.set_trace
 
 # set -x DOTNET_ROOT $HOME/dotnet

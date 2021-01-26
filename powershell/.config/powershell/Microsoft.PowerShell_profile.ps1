@@ -1,6 +1,11 @@
 
 Import-Module '/home/jon/.local/share/powershell/Modules/posh-git/1.0.0/posh-git.psd1'
 
+function gs { git status }
+function gb { git branch -vv } 
+function vimrc { vim ~/.vimrc }
+
+
 filter maybesubstring {
     param(
         [Parameter(ValueFromPipeline)]
