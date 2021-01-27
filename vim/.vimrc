@@ -5,24 +5,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	let need_to_install_plugins = 1
 endif
 
-syntax enable
 set noswapfile
-set nobackup
-set nowritebackup
-set undodir=~/.vim/undodir
-set undofile
 set splitright
 set splitbelow
-set autoread
 set tabstop=4 
 set softtabstop=4 
 set shiftwidth=4
-set wildmenu
-set incsearch
 set ignorecase " case insensitive search
-set autoindent
 set number rnu " relative line numbering
-filetype plugin indent on
 
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
 set clipboard=unnamedplus
