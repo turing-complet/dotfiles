@@ -1,0 +1,13 @@
+[credential]
+	helper = store
+[user]
+	email = jhagg314@gmail.com
+	name = Jon Hagg
+
+[alias]
+co = checkout
+br = branch -vv
+st = status
+
+[fetch]
+prune = true
