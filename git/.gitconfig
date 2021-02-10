@@ -11,3 +11,6 @@ st = status
 
 [fetch]
 prune = true
+
+[pull]
+ff = only
