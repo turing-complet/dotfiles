@@ -78,16 +78,15 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'vim-python/python-syntax'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mhinz/vim-startify'
 Plug 'puremourning/vimspector'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 Plug 'joshdick/onedark.vim'
-Plug 'altercation/vim-colors-solarized'
 
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'airblade/vim-gitgutter'
@@ -159,8 +158,6 @@ set background=dark
 " colorscheme gruvbox
 colorscheme onedark
 
-" let g:solarized_termcolors=256
-" colorscheme solarized
 
 " ============== ipython-cell ===============
 
@@ -191,10 +188,6 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
 
-
-" ============== python-syntax ===============
-let g:python_highlight_all = 1
-let g:python_version_2 = 0
 
 
 " ================ airline  =================
