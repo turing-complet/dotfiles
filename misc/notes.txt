@@ -6,7 +6,7 @@ curl -L https://get.oh-my.fish | fish
 omf install 'https://github.com/sentriz/fish-pipenv'
 
 seems to only work from ~ dir
-ln -s dotfiles/.vimrc .vimrc
+ln -s dotfiles/vim/.vimrc .vimrc
 
 set DEST ~/.aaron-williamson-alacritty-theme
 alacritty-colorscheme -C $DEST/colors -l
