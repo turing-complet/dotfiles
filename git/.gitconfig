@@ -4,13 +4,50 @@
 	email = jhagg314@gmail.com
 	name = Jon Hagg
 
+[core]
+	editor = vim
+
 [alias]
-co = checkout
-br = branch -vv
-st = status
+	co = checkout
+	br = branch -vv
+	st = status
+	p = push origin HEAD
+	pf = push -f origin HEAD
+	prev = reset --soft HEAD^
+	forget = reset --hard HEAD
+	nvm = reset --hard HEAD
+
+
+	##### from https://github.com/jessfraz/dotfiles/blob/master/.gitconfig
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -s
+
+	# Commit all changes
+	ca = !git add -A && git commit -av
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+	# Checkout a pull request from origin (of a github repository)
+	pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
+
+	# Switch to a branch, creating it if necessary
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+	# Color graph log view
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+
+	##########
 
 [fetch]
-prune = true
+	prune = true
 
 [pull]
-ff = only
+	ff = only
+
+[diff]
+	# Detect copies as well as renames
+	renames = copies
