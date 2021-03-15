@@ -88,6 +88,11 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 Plug 'joshdick/onedark.vim'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'jiangmiao/auto-pairs'
@@ -128,6 +133,13 @@ abbr pymain if __name__ == '__main__':
 if has('mouse')
 	set mouse=a
 endif
+
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ============== vimspector ===============
 nnoremap <leader>dd :call vimspector#Launch()<CR>
