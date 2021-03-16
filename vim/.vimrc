@@ -15,7 +15,7 @@ set ignorecase " case insensitive search
 set number rnu " relative line numbering
 
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 xnoremap p pgvy
 
 imap jj <Esc>
@@ -69,7 +69,6 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'cespare/vim-toml'
@@ -92,10 +91,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 " Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -230,6 +227,11 @@ nnoremap <leader>g :Rg<CR>
 " ================ fzf-checkout =================
 nnoremap <leader>gc :GCheckout<CR>
 
+" ================ nvim-lsp =================
+lua << EOF
+require'lspconfig'.pyright.setup{ on_attach=require'completion'.on_attach }
+EOF
+set completeopt=menuone,noinsert,noselect
 
 " ================ nerdtree =================
 map <C-b> :NERDTreeToggle<CR>
@@ -243,61 +245,11 @@ autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | en
 " Prevent crashes? from https://github.com/preservim/nerdtree/wiki
 let g:plug_window = 'noautocmd vertical topleft new'
 
-
-" ================ coc.nvim =================
-
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-
-nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+	augroup WSLYank
+		autocmd!
+		autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+	augroup END
+endif
