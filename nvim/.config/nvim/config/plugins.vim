@@ -96,4 +96,4 @@ nnoremap <leader>g :Rg<CR>
 
 
 " ================ fzf-checkout =================
-nnoremap <leader>gc :GCheckout<CR>
+nnoremap <leader>gb :GBranches<CR>
