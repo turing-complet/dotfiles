@@ -19,8 +19,9 @@ set -x PYTHONBREAKPOINT ipdb.set_trace
 set DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 alias kubectl="microk8s kubectl"
-alias vimrc="vim ~/dotfiles/vim/.vimrc"
+alias nvim=~/code/nvim.appimage
 alias vim=nvim
+alias vimrc="vim ~/.vimrc"
 alias gb="git branch -vv"
 set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
 pyenv init - | source

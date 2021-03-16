@@ -29,7 +29,7 @@ nmap <leader>q :q<cr>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 
-nnoremap <leader>r :so ~/.vimrc<CR>
+nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
 " Enable folding with spacebar
 nnoremap <space> za
