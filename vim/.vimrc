@@ -5,61 +5,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	let need_to_install_plugins = 1
 endif
 
-set noswapfile
-set splitright
-set splitbelow
-set tabstop=4 
-set softtabstop=4 
-set shiftwidth=4
-set ignorecase " case insensitive search
-set number rnu " relative line numbering
-
-" vmap <silent> y y:call system("wl-copy", @@)<CR>
-set clipboard+=unnamedplus
-xnoremap p pgvy
-
-imap jj <Esc>
-imap kj <Esc>
-cmap jj <Esc>
-cmap kj <Esc>
-
-
-let mapleader=","
-let maplocalleader="\\"
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-map :Vs :vs
-map :Sp :sp
-
-" close current buffer
-nnoremap <leader>c :bp\|bd #<CR>
-
-" enable pasting to actually work
-set pastetoggle=<F2>
-
-" Fast saving
-nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
-
-" ; is useful for jumping within a line
-" nnoremap ; :
-
-"cycle buffers
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
-
-nnoremap <leader>r :so ~/.vimrc<CR>
-
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with spacebar
-nnoremap <space> za
 
 call plug#begin('~/.vim/plugged')
 
@@ -103,17 +48,9 @@ if need_to_install_plugins == 1
 	q
 endif
 
-" search selected text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
-"tab completion on sub folders
-set path +=**
-
-
-"This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>
 
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -126,183 +63,10 @@ au BufNewFile,BufRead *.py
 
 abbr pymain if __name__ == '__main__':
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-	set mouse=a
-endif
-
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" ============== vimspector ===============
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
-nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
-nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
-nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
-nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
-nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
-
-nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
-
-nmap <leader>dl <Plug>VimspectorStepInto
-nmap <leader>dj <Plug>VimspectorStepOver
-nmap <leader>dk <Plug>VimspectorStepOut
-nmap <leader>d_ <Plug>VimspectorRestart
-nnoremap <leader>d<space> :call vimspector#Continue()<CR>
-
-nmap <leader>drc <Plug>VimspectorRunToCursor
-nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
-nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
-
 
 " ============== colors ===============
 let g:gruvbox_invert_selection='0'
 set background=dark
-" colorscheme gruvbox
-colorscheme onedark
+colorscheme gruvbox
+" colorscheme onedark
 
-
-" ============== ipython-cell ===============
-
-let g:slime_target = 'tmux'
-
-" fix paste issues in ipython
-let g:slime_python_ipython = 1
-let g:slime_default_config = {
-            \ 'socket_name': get(split($TMUX, ','), 0),
-            \ 'target_pane': '{top-right}' }
-let g:slime_dont_ask_default = 1
-
-nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
-nnoremap <Leader>e :IPythonCellExecuteCell<CR>
-nnoremap [c :IPythonCellPrevCell<CR>
-nnoremap ]c :IPythonCellNextCell<CR>
-nmap <Leader>h <Plug>SlimeLineSend
-xmap <Leader>h <Plug>SlimeRegionSend
-
-" map <Leader>x to close all Matplotlib figure windows
-nnoremap <Leader>x :IPythonCellClose<CR>
-
-" conflict with reloading vimrc
-" nnoremap <Leader>r :IPythonCellRun<CR>
-
-
-" ============== markdown-preview ===============
-let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
-
-
-
-" ================ airline  =================
-let g:airline#extensions#coc#enabled = 0
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-
-
-" ================ fugative  =================
-nnoremap <leader>gs :Gstatus
-nnoremap <leader>gdf :Gdiffsplit
-
-
-" ================ black  =================
-" autocmd BufWritePre *.py execute ':Black'
-nnoremap <F9> :Black<CR>
-
-
-" ================ tagbar  =================
-nmap <F8> :TagbarToggle<CR>
-
-
-" ================ fzf =================
-nnoremap <leader>p  :GFiles<CR>
-nnoremap <leader>g :Rg<CR>
-
-
-" ================ fzf-checkout =================
-nnoremap <leader>gc :GCheckout<CR>
-
-" ================ nvim-lsp =================
-set completeopt=menuone,noinsert,noselect
-
-lua << EOF
-local nvim_lsp = require('lspconfig')
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
-
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]], false)
-  end
-end
-
--- Use a loop to conveniently both setup defined servers 
--- and map buffer local keybindings when the language server attaches
-local servers = { "pyright" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
-end
-EOF
-
-" ================ nerdtree =================
-map <C-b> :NERDTreeToggle<CR>
-map <leader>b :NERDTreeFind<CR>
-let g:NERDTreeShowHidden=1
-let g:NERDTreeAutoDeleteBuffer=1
-
-" If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-
-" Prevent crashes? from https://github.com/preservim/nerdtree/wiki
-let g:plug_window = 'noautocmd vertical topleft new'
-
-" WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-	augroup WSLYank
-		autocmd!
-		autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-	augroup END
-endif
