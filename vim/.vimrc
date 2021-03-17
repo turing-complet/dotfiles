@@ -14,25 +14,27 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'vim-utils/vim-man'
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'cespare/vim-toml'
 Plug 'tpope/vim-commentary'
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'vim-utils/vim-man'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
+
+Plug 'cespare/vim-toml'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'puremourning/vimspector'
+Plug 'morhetz/gruvbox'
+
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-Plug 'joshdick/onedark.vim'
-
+Plug 'puremourning/vimspector'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -52,6 +54,8 @@ endif
 
 let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
+" auto-pairs
+au FileType python let b:AutoPairs = AutoPairsDefine({'f"' : '"', 'r"' : '"', 'b"' : '"'})
 
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
