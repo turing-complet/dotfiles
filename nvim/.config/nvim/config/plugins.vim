@@ -79,6 +79,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ================ fugative  =================
 nnoremap <leader>gs :Gstatus
 nnoremap <leader>gdf :Gdiffsplit
+nnoremap <leader>gc :Git commit
 
 
 " ================ black  =================
