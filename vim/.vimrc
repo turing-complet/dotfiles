@@ -42,6 +42,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 " Plug 'dense-analysis/ale'
+" Plug 'junegunn/gv.vim'
 call plug#end()
 
 if need_to_install_plugins == 1

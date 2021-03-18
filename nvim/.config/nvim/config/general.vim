@@ -1,11 +1,25 @@
 set noswapfile
+set undodir=~/.vim/undodir
+set undofile
 set splitright
 set splitbelow
+set expandtab
+set smartindent
 set tabstop=4 
 set softtabstop=4 
 set shiftwidth=4
-set ignorecase " case insensitive search
 set number rnu " relative line numbering
+set exrc " per project vimrc
+set guicursor=
+set nohlsearch
+set hidden " switch buffers without saving
+set noerrorbells
+set nowrap
+set scrolloff=4
+set signcolumn=yes
+set colorcolumn=88
+set updatetime=50
+set shortmess+=c
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
