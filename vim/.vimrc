@@ -31,7 +31,7 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'puremourning/vimspector'
@@ -74,5 +74,3 @@ abbr pymain if __name__ == '__main__':
 let g:gruvbox_invert_selection='0'
 set background=dark
 colorscheme gruvbox
-" colorscheme onedark
-
