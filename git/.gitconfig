@@ -16,7 +16,7 @@
 	prev = reset --soft HEAD^
 	forget = reset --hard HEAD
 	nvm = reset --hard HEAD
-
+	lsfiles = !"lsfiles() { git diff-tree --no-commit-id --name-only -r $1;  }; lsfiles"
 
 	##### from https://github.com/jessfraz/dotfiles/blob/master/.gitconfig
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
