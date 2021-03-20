@@ -72,5 +72,10 @@ abbr pymain if __name__ == '__main__':
 
 " ============== colors ===============
 let g:gruvbox_invert_selection='0'
-set background=dark
-colorscheme gruvbox
+if &background != 'dark'
+  set background=dark
+endif
+
+if !exists('g:colors_name')
+  colorscheme gruvbox
+endif
