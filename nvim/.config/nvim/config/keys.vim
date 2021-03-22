@@ -15,7 +15,7 @@ nnoremap <C-H> <C-W><C-H>
 " indent/unindent with tab/shift-tab
 nmap <Tab> >>
 nmap <S-tab> <<
-imap <S-Tab> <Esc><<i
+" imap <S-Tab> <Esc><<i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
