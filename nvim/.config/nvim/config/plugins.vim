@@ -99,9 +99,3 @@ nnoremap <leader>g :Rg<CR>
 " ================ fzf-checkout =================
 nnoremap <leader>gb :GBranches<CR>
 
-
-" ================ completion =================
-set completeopt=menuone,noinsert,noselect
-
-" Use completion-nvim in every buffer
-" autocmd BufEnter * lua require'completion'.on_attach()
