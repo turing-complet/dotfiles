@@ -33,6 +33,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
 
+" Plug 'sheerun/vim-polyglot'
+" Plug 'pineapplegiant/spaceduck', { 'branch': 'main'  }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'puremourning/vimspector'
 Plug 'nvim-lua/popup.nvim'
@@ -75,6 +77,15 @@ let g:gruvbox_invert_selection='0'
 if &background != 'dark'
   set background=dark
 endif
+
+" if exists('+termguicolors')
+" 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" 	set termguicolors
+" endif
+
+" colorscheme spaceduck
+" let g:airline_theme = 'spaceduck'
 
 if !exists('g:colors_name')
   colorscheme gruvbox
