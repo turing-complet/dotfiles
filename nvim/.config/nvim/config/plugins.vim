@@ -5,7 +5,7 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
-nnoremap <leader>p :lua require('telescope.builtin').git_files()<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 
 
 " ============== ipython-cell ===============

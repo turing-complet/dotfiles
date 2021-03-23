@@ -34,7 +34,6 @@ nmap <leader>q :q<cr>
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
 
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
