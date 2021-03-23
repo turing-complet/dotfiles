@@ -61,6 +61,7 @@ let g:airline#extensions#tabline#enabled = 1
 nnoremap <leader>gs :Gstatus
 nnoremap <leader>gdf :Gdiffsplit
 nnoremap <leader>gc :Git commit
+nnoremap <leader>gp :Git push origin HEAD
 
 
 " ================ black  =================
