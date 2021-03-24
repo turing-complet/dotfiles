@@ -1,10 +1,8 @@
-let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	let need_to_install_plugins = 1
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -44,13 +42,6 @@ Plug 'nvim-lua/completion-nvim'
 " Plug 'dense-analysis/ale'
 " Plug 'junegunn/gv.vim'
 call plug#end()
-
-if need_to_install_plugins == 1
-	echo "Installing plugins..."
-	silent! PlugInstall
-	echo "Done!"
-	q
-endif
 
 
 let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
