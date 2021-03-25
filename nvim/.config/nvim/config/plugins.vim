@@ -82,6 +82,10 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>gb :GBranches<CR>
 
 
+" ============== context ===============
+nnoremap <leader>cc :ContextToggle<CR>
+
+
 " ============== vimspector ===============
 " nnoremap <leader>dd :call vimspector#Launch()<CR>
 " nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
