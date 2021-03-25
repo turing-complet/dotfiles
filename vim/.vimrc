@@ -60,6 +60,8 @@ au BufNewFile,BufRead *.py
 
 abbr pymain if __name__ == '__main__':
 
+" :Cex !tox -e flake8
+command! -nargs=+ Cex :redir => o | silent execute '<args>' | redir END | cex split(o, '\n') | copen
 
 " ============== colors ===============
 let g:gruvbox_invert_selection='0'
