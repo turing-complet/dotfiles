@@ -35,6 +35,9 @@ nmap <leader>q :q<cr>
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
 
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprev<CR>
+
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
 " Enable folding with spacebar
