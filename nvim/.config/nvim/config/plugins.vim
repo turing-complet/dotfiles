@@ -8,6 +8,15 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 
 
+" ============== treesitter ===============
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
 " ============== ipython-cell ===============
 
 let g:slime_target = 'tmux'
