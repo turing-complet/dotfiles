@@ -45,6 +45,7 @@ autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | en
 " Prevent crashes? from https://github.com/preservim/nerdtree/wiki
 let g:plug_window = 'noautocmd vertical topleft new'
 
+
 " ============== markdown-preview ===============
 let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
@@ -74,16 +75,12 @@ nmap <F8> :TagbarToggle<CR>
 
 
 " ================ fzf =================
-" nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>g :Rg<CR>
 
 
 " ================ fzf-checkout =================
 nnoremap <leader>gb :GBranches<CR>
-
-
-" ============== context ===============
-nnoremap <leader>cc :ContextToggle<CR>
 
 
 " ============== vimspector ===============

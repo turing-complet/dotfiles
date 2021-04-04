@@ -19,7 +19,7 @@ set scrolloff=4
 set signcolumn=yes
 set colorcolumn=88
 set updatetime=50
-set timeoutlen=300
+" set timeoutlen=300
 set shortmess+=c
 
 " In many terminal emulators the mouse works just fine, thus enable it.

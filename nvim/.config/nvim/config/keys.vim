@@ -4,7 +4,7 @@ cmap jj <Esc>
 cmap kj <Esc>
 
 let mapleader=","
-let maplocalleader="\\"
+let maplocalleader=","
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -35,8 +35,10 @@ nmap <leader>q :q<cr>
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
 
-nnoremap <leader>cn :cnext<CR>
-nnoremap <leader>cp :cprev<CR>
+" nnoremap <leader>cn :cnext<CR>
+" nnoremap <leader>cp :cprev<CR>
+nnoremap [j :cnext<CR>
+nnoremap [k :cprev<CR>
 
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
