@@ -1,8 +1,3 @@
-lua << EOF
-    local on_attach = require'completion'.on_attach
-    require'lspconfig'.pyright.setup{ on_attach=on_attach  }
-EOF
-
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

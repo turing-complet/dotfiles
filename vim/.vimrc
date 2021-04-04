@@ -19,6 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
+" Plug 'junegunn/gv.vim'
 
 Plug 'cespare/vim-toml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -31,10 +32,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
-
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Plug 'dense-analysis/ale'
-" Plug 'junegunn/gv.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'puremourning/vimspector'
