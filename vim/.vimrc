@@ -34,6 +34,9 @@ Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 Plug 'puremourning/vimspector'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
