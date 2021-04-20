@@ -19,6 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
+Plug 'liuchengxu/vim-which-key'
 " Plug 'junegunn/gv.vim'
 
 Plug 'cespare/vim-toml'

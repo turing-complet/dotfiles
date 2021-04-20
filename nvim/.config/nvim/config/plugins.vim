@@ -8,6 +8,12 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 
 
+" ============== which-key ===============
+nnoremap <silent> <leader> :WhichKey ','<CR>
+nnoremap <silent> <leader>] :WhichKey ']'<CR>
+nnoremap <silent> <leader>[ :WhichKey '['<CR>
+
+
 " ============== ipython-cell ===============
 
 let g:slime_target = 'tmux'
