@@ -7,11 +7,13 @@ let mapleader=","
 let maplocalleader=","
 
 " indent/unindent with tab/shift-tab
-nmap <Tab> >>
-nmap <S-tab> <<
-" imap <S-Tab> <Esc><<i
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+" nmap <Tab> >>
+" nmap <S-tab> <<
+" vmap <Tab> >gv
+" vmap <S-Tab> <gv
+"
+" fix jumplist if needed
+" nnoremap <C-t> <C-i>
 
 map :Vs :vs
 map :Sp :sp
