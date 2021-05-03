@@ -1,10 +1,10 @@
 
 " ============== telescope ===============
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
+nnoremap <C-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 
 
@@ -57,16 +57,14 @@ let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
 
 
-
 " ================ airline  =================
 let g:airline#extensions#coc#enabled = 0
-let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
 
 " ================ fugative  =================
-nnoremap <leader>gs :Gstatus
-nnoremap <leader>gdf :Gdiffsplit
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gdf :Gdiffsplit<CR>
 nnoremap <leader>gc :Git commit
 nnoremap <leader>gp :Git push origin HEAD
 

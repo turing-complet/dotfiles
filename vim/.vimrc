@@ -20,19 +20,17 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
 Plug 'liuchengxu/vim-which-key'
-" Plug 'junegunn/gv.vim'
-
-Plug 'cespare/vim-toml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'junegunn/gv.vim'
 
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
+" Plug 'folke/tokyonight.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
@@ -69,10 +67,6 @@ command! -nargs=+ Cex :redir => o | silent execute '<args>' | redir END | cex sp
 
 " ============== colors ===============
 let g:gruvbox_invert_selection='0'
-if &background != 'dark'
-  set background=dark
-endif
-
-if !exists('g:colors_name')
-  colorscheme gruvbox
-endif
+set background=dark
+colorscheme gruvbox
+" colorscheme tokyonight
