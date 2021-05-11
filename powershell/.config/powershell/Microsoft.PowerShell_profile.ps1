@@ -1,10 +1,15 @@
 
 Import-Module '/home/jon/.local/share/powershell/Modules/posh-git/1.0.0/posh-git.psd1'
 
+$env:Path += ";C:\Users\jon\AppData\Local\Programs\Python\Python38"
+$env:Path += ";C:\Users\jon\AppData\Local\Programs\Python\Python38\Scripts"
+$env:Path += ";C:\Users\jon\Downloads\nvim-win64\Neovim\bin"
+$env:Path += ";C:\Program Files\Notepad++"
+
 function gs { git status }
 function gb { git branch -vv } 
 function vimrc { vim ~/.vimrc }
-
+function vim { nvim.exe  }
 
 filter maybesubstring {
     param(

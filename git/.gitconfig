@@ -4,6 +4,9 @@
 	email = jhagg314@gmail.com
 	name = Jon Hagg
 
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
+
 [core]
 	editor = vim
 
