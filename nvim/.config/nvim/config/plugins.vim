@@ -6,6 +6,11 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
 nnoremap <C-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>fd <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+" nnoremap <leader>gg <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>tl <cmd>lua require('telescope.builtin').builtin()<cr>
 
 
 " ============== which-key ===============
@@ -22,7 +27,7 @@ let g:slime_target = 'tmux'
 let g:slime_python_ipython = 1
 let g:slime_default_config = {
             \ 'socket_name': get(split($TMUX, ','), 0),
-            \ 'target_pane': '{top-right}' }
+            \ 'target_pane': '{bottom-left}' }
 let g:slime_dont_ask_default = 1
 
 nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
@@ -80,14 +85,6 @@ nnoremap <F9> :Black<CR>
 " ================ tagbar  =================
 nmap <F8> :TagbarToggle<CR>
 
-
-" ================ fzf =================
-nnoremap <leader>p :GFiles<CR>
-nnoremap <leader>g :Rg<CR>
-
-
-" ================ fzf-checkout =================
-nnoremap <leader>gb :GBranches<CR>
 
 
 " ============== vimspector ===============
