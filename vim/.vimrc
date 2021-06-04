@@ -27,7 +27,6 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'vim-airline/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
-" Plug 'folke/tokyonight.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
@@ -66,4 +65,3 @@ command! -nargs=+ Cex :redir => o | silent execute '<args>' | redir END | cex sp
 let g:gruvbox_invert_selection='0'
 set background=dark
 colorscheme gruvbox
-" colorscheme tokyonight
