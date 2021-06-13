@@ -1,10 +1,20 @@
 
+-- ============== telescope  ===============
+
+require('telescope').setup{
+  defaults ={
+    layout_strategy = "vertical"
+  }
+}
+
+
 -- ============== treesitter ===============
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
 }
+
 
 -- ============== lsp  ===============
 local on_attach = require'completion'.on_attach

@@ -1,11 +1,11 @@
 
 " ============== telescope ===============
+nnoremap <C-p> :lua require('telescope-config').project_files()<CR>
+nnoremap <C-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
-nnoremap <C-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>fd <cmd>lua require('telescope.builtin').file_browser()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
