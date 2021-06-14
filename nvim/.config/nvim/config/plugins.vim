@@ -1,7 +1,7 @@
 
 " ============== telescope ===============
 nnoremap <C-p> :lua require('telescope-config').project_files()<CR>
-nnoremap <C-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <C-g> :lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>

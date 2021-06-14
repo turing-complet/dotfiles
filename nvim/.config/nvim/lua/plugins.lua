@@ -3,7 +3,8 @@
 
 require('telescope').setup{
   defaults ={
-    layout_strategy = "vertical"
+    layout_strategy = "vertical",
+    -- preview_height = 5
   }
 }
 
