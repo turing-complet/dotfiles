@@ -38,6 +38,9 @@ nnoremap [k :cprev<CR>
 
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 
+" nnoremap <leader>ss :mksession! ~/.vim/sessions
+" nnoremap <leader>sl :source ~/.vim/sessions
+
 " Enable folding with spacebar
 nnoremap <space> za
 
