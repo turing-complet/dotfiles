@@ -22,6 +22,7 @@ set updatetime=50
 set timeoutlen=500
 set shortmess+=c
 set switchbuf=useopen,usetab
+set cursorline
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
