@@ -51,8 +51,6 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " this variable must be enabled for colors to be applied properly
 set termguicolors 
 
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
 
 " ============== markdown-preview ===============
 let g:mkdp_refresh_slow=1
