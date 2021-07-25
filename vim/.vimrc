@@ -30,9 +30,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 'gruvbox-community/gruvbox'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat', 'do': ':TSUpdate'  }
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', { 'branch': '0.5-compat' }
 Plug 'nvim-treesitter/playground'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 Plug 'puremourning/vimspector'
 Plug 'nvim-lua/popup.nvim'
