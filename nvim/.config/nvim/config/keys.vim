@@ -67,3 +67,16 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap Y y$
+
+" undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap [ [<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" add to jumplist for >5 line number navs
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
