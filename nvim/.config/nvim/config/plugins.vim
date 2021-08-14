@@ -48,6 +48,8 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 nnoremap <C-b> :NvimTreeToggle<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox' ]
+
 " this variable must be enabled for colors to be applied properly
 set termguicolors 
 
