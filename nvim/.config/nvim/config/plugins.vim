@@ -54,6 +54,11 @@ let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox'
 set termguicolors 
 
 
+" ============== limelight ===============
+nmap <Leader>l :Limelight<CR>
+nmap <Leader>L :Limelight!<CR>
+
+
 " ============== markdown-preview ===============
 let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'

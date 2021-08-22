@@ -20,6 +20,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'junegunn/limelight.vim'
 " Plug 'junegunn/gv.vim'
 
 Plug 'psf/black', { 'branch': 'main' }
