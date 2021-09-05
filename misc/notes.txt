@@ -14,3 +14,10 @@ alacritty-colorscheme -C $DEST/colors -t <theme>.yml
 
 # select gogh colorscheme 
 bash -c  "$(wget -qO- https://git.io/vQgMr)"
+
+# add function to fish:
+alias foo="mycommand --some-arg"
+funcsave foo
+cd ~/dotfiles
+mv ~/.config/fish/functions/foo.fish fish/.config/fish/functions
+stow fish
