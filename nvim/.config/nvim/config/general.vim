@@ -23,7 +23,7 @@ set timeoutlen=500
 set switchbuf=useopen,usetab
 set cursorline
 set autowrite
-set completeopt=menuone,longest
+set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 
