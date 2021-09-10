@@ -32,8 +32,8 @@ let g:slime_dont_ask_default = 1
 
 nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
 nnoremap <Leader>e :IPythonCellExecuteCell<CR>
-nnoremap [c :IPythonCellPrevCell<CR>
-nnoremap ]c :IPythonCellNextCell<CR>
+" nnoremap [c :IPythonCellPrevCell<CR>
+" nnoremap ]c :IPythonCellNextCell<CR>
 nmap <Leader>h <Plug>SlimeLineSend
 xmap <Leader>h <Plug>SlimeRegionSend
 
@@ -69,7 +69,7 @@ let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
 
-" ================ fugative  =================
+" ================ fugitive  =================
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gdf :Gdiffsplit<CR>
 nnoremap <leader>gc :Git commit
@@ -86,6 +86,10 @@ nnoremap <F9> :Black<CR>
 
 " ================ tagbar  =================
 nmap <F8> :TagbarToggle<CR>
+
+
+" ================ auto-pairs  =================
+au FileType python let b:AutoPairs = AutoPairsDefine({'f"' : '"', 'r"' : '"', 'b"' : '"'})
 
 
 " ============== vimspector ===============

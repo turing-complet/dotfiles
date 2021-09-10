@@ -47,22 +47,6 @@ call plug#end()
 
 let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
-" auto-pairs
-au FileType python let b:AutoPairs = AutoPairsDefine({'f"' : '"', 'r"' : '"', 'b"' : '"'})
-
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-au BufNewFile,BufRead *.py
-			\ set shiftwidth=4 |
-			\ set textwidth=88 |
-			\ set expandtab |
-			\ set fileformat=unix
-
-abbr pymain if __name__ == '__main__':
-
-" :Cex !tox -e flake8
-command! -nargs=+ Cex :redir => o | silent execute '<args>' | redir END | cex split(o, '\n') | copen
 
 " ============== colors ===============
 let g:gruvbox_invert_selection='0'

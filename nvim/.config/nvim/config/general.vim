@@ -53,3 +53,16 @@ if executable(s:clip)
 		autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
 	augroup END
 endif
+
+autocmd! BufWinEnter quickfix setlocal nowinfixheight
+
+
+abbr pymain if __name__ == '__main__':
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+au BufNewFile,BufRead *.py
+			\ set shiftwidth=4 |
+			\ set textwidth=88 |
+			\ set expandtab |
+			\ set fileformat=unix

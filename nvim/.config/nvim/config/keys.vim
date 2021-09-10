@@ -80,3 +80,6 @@ inoremap ? ?<c-g>u
 " add to jumplist for >5 line number navs
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" :Cex !tox -e flake8
+command! -nargs=+ Cex :redir => o | silent execute '<args>' | redir END | cex split(o, '\n') | copen
