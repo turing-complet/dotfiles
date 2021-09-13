@@ -11,6 +11,7 @@ nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 " nnoremap <leader>gg <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>tl <cmd>lua require('telescope.builtin').builtin()<cr>
+nnoremap <leader>fc :lua require('telescope-config').find_classes()<CR>
 
 
 " ============== which-key ===============
@@ -18,6 +19,16 @@ nnoremap <silent> <leader> :WhichKey ','<CR>
 nnoremap <silent> <leader>] :WhichKey ']'<CR>
 nnoremap <silent> <leader>[ :WhichKey '['<CR>
 
+
+" ============== vim-test ===============
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "neovim"
+let test#python#runner = 'pytest'
 
 " ============== ipython-cell ===============
 

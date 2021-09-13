@@ -9,4 +9,12 @@ M.project_files = function()
     end
 end
 
+function M.find_classes ()
+    require("telescope.builtin").grep_string({
+        prompt_title = "Classes",
+        search='^class ',
+        use_regex=true
+    })
+end
+
 return M
