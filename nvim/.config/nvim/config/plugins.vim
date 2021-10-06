@@ -8,6 +8,7 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
 nnoremap <leader>fd <cmd>lua require('telescope.builtin').file_browser()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 " nnoremap <leader>gg <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>tl <cmd>lua require('telescope.builtin').builtin()<cr>
@@ -59,7 +60,7 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 nnoremap <C-b> :NvimTreeToggle<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox' ]
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox', '*.pyc' ]
 
 " this variable must be enabled for colors to be applied properly
 set termguicolors 
