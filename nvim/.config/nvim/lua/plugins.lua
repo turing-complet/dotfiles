@@ -71,3 +71,8 @@ require'lspconfig'.jsonls.setup {
 
 -- ============== trouble  ===============
 require("trouble").setup {}
+
+
+-- ============== nvim-tree  ===============
+-- NOTE: this should be run AFTER setting g:nvim_tree_*
+require("nvim-tree").setup {}
