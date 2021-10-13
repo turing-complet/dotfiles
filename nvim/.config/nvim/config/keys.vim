@@ -30,6 +30,7 @@ nmap <leader>q :q<cr>
 
 "cycle buffers
 nnoremap <C-n> :bnext<CR>
+nnoremap <C-b> :bprev<CR>
 
 " nnoremap <leader>cn :cnext<CR>
 " nnoremap <leader>cp :cprev<CR>

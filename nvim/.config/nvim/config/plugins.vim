@@ -57,8 +57,8 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 
 
 " ================ file explorer =================
-nnoremap <C-b> :NvimTreeToggle<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <F7> :NvimTreeToggle<CR>
+nnoremap <leader>b :NvimTreeFindFile<CR>
 
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox', '*.pyc' ]
 
