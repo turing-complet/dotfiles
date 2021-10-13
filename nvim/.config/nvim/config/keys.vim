@@ -54,6 +54,9 @@ nnoremap <CR> :noh<CR><CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+nnoremap <leader>wh <C-w>t<C-w>H
+nnoremap <leader>wv <C-w>t<C-w>K
+
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-N><C-w>h
