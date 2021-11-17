@@ -15,7 +15,6 @@ nnoremap <leader>tl :lua require('telescope.builtin').builtin()<cr>
 nnoremap <leader>fc :lua require('telescope-config').find_classes()<CR>
 
 
-
 " ============== which-key ===============
 nnoremap <silent> <leader> :WhichKey ','<CR>
 nnoremap <silent> <leader>] :WhichKey ']'<CR>
@@ -60,8 +59,6 @@ nnoremap <Leader>x :IPythonCellClose<CR>
 " ================ file explorer =================
 nnoremap <F7> :NvimTreeToggle<CR>
 nnoremap <leader>b :NvimTreeFindFile<CR>
-
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '__pycache__', '.nox', '.tox', '*.pyc' ]
 
 " this variable must be enabled for colors to be applied properly
 set termguicolors 

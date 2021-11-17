@@ -75,4 +75,6 @@ require("trouble").setup {}
 
 -- ============== nvim-tree  ===============
 -- NOTE: this should be run AFTER setting g:nvim_tree_*
-require("nvim-tree").setup {}
+require("nvim-tree").setup {
+ nvim_tree_ignore = {'.git', 'node_modules', '__pycache__', '.nox', '.tox', '*.pyc'}
+}
