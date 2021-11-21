@@ -48,6 +48,8 @@ nnoremap <space> za
 " search selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+nnoremap * *<c-o>
+
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
