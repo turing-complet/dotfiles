@@ -11,8 +11,6 @@ set shiftwidth=4
 set number rnu " relative line numbering
 set exrc " per project vimrc
 set guicursor=
-set nohlsearch
-set hidden " switch buffers without saving
 set noerrorbells
 set nowrap
 set scrolloff=4

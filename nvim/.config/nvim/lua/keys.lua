@@ -58,7 +58,6 @@ imap('<C-j>', '<C-\><C-N><C-w>j')
 imap('<C-k>', '<C-\><C-N><C-w>k')
 imap('<C-l>', '<C-\><C-N><C-w>l')
 
-nmap('Y', '$y')
 nmap('*', '*<c-o>')
 
 -- undo break points
