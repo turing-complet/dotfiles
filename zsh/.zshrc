@@ -104,9 +104,11 @@ alias nvim=~/code/nvim.appimage
 alias vim=nvim
 alias gs="git status"
 alias gb="git branch -vv"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+alias python=python3.9
+alias python3=python3.9
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 export PATH="$HOME/.local/bin:$PATH"
