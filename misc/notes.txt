@@ -2,9 +2,6 @@ ps -ef | grep pwsh | tr -s ' ' | cut -d ' ' -f 2 | xargs -L1 kill
 
 #################################
 
-curl -L https://get.oh-my.fish | fish
-omf install 'https://github.com/sentriz/fish-pipenv'
-
 seems to only work from ~ dir
 ln -s dotfiles/vim/.vimrc .vimrc
 
