@@ -3,9 +3,6 @@ imap kj <Esc>
 cmap jj <Esc>
 cmap kj <Esc>
 
-let mapleader=","
-let maplocalleader=","
-
 " indent/unindent with tab/shift-tab
 " nmap <Tab> >>
 " nmap <S-tab> <<

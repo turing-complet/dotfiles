@@ -1,4 +1,6 @@
 set runtimepath^=~/.vim
+let mapleader=","
+let maplocalleader=","
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -8,7 +10,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
@@ -16,10 +17,8 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-utils/vim-man'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
-" Plug 'junegunn/gv.vim'
-
-Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'mhinz/vim-startify'
+" Plug 'junegunn/gv.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
