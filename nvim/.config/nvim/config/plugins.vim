@@ -15,6 +15,7 @@ nnoremap <leader>tl :lua require('telescope.builtin').builtin()<cr>
 nnoremap <leader>fc :lua require('telescope-config').find_classes()<CR>
 
 
+
 " ============== which-key ===============
 nnoremap <silent> <leader> :WhichKey ','<CR>
 nnoremap <silent> <leader>] :WhichKey ']'<CR>
@@ -71,7 +72,7 @@ nmap <Leader>L :Limelight!<CR>
 
 " ============== markdown-preview ===============
 let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css='~/dotfiles/vim/github-markdown.css'
+let g:mkdp_markdown_css='~/dotfiles/nvim/github-markdown.css'
 
 
 " ================ airline  =================
