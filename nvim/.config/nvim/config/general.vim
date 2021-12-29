@@ -23,6 +23,9 @@ set cursorline
 set autowrite
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+set termguicolors
+set list
+set listchars=tab:▸\ ,trail:·
 
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -30,6 +33,9 @@ if has('mouse')
 	set mouse=a
 endif
 
+" Allow gf to open non-existent files
+map gf :edit <cfile><cr>
+"
 " vmap <silent> y y:call system("wl-copy", @@)<CR>
 set clipboard+=unnamedplus
 xnoremap p pgvy
