@@ -28,7 +28,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
 
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/fugitive.vim
@@ -53,6 +58,7 @@ let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 
 source ~/.config/nvim/config/general.vim
 source ~/.config/nvim/config/keys.vim
-source ~/.config/nvim/config/lsp.vim
 lua require('plugins')
+lua require('treesitter')
+lua require('lsp')
 " lua require('keys')

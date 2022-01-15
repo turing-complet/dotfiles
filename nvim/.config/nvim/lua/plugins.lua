@@ -1,4 +1,3 @@
-
 -- ============== telescope  ===============
 
 require('telescope').setup{
@@ -8,64 +7,24 @@ require('telescope').setup{
   }
 }
 
+-- ============== cmp  ===============
+local cmp = require "cmp"
 
--- ============== treesitter ===============
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim 
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
+cmp.setup {
+    mapping = {
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<C-y>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        },
+        ["<C-space>"] = cmp.mapping.complete(),
     },
-  },
-  move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-}
-
-
-
--- ============== lsp  ===============
-local on_attach = require'completion'.on_attach
-require'lspconfig'.pyright.setup{ on_attach=on_attach  }
-
-require'lspconfig'.jsonls.setup {
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer", keyword_length = 4 },
     }
-  }
 }
 
 
