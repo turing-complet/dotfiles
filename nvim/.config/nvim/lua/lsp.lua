@@ -29,10 +29,13 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer' }
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local servers = { 'pyright', 'rust_analyzer', 'jsonls', 'html'}
 for _, lsp in ipairs(servers) do
+  capabilities = capabilities,
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
@@ -40,16 +43,4 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
-
-
-require'lspconfig'.jsonls.setup {
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
-    }
-  }
-}
-
 
