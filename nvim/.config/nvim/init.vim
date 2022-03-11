@@ -52,7 +52,8 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
+" let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
+let g:python3_host_prog = '~/code/.env/bin/python'
 
 
 source ~/.config/nvim/config/general.vim
