@@ -7,3 +7,4 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 let test#strategy = "neovim"
 let test#python#runner = 'pytest'
+let test#python#pytest#options = '-s'
