@@ -18,6 +18,7 @@ Plug 'vim-utils/vim-man'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'wellle/context.vim'
 Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-signify'
 " Plug 'junegunn/gv.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
