@@ -9,7 +9,7 @@
     "extensions.ignoreRecommendations": true,
     "workbench.colorTheme": "ENCOM",
     "workbench.panel.defaultLocation": "right",
-    "python.pythonPath": "/home/jon/.local/share/virtualenvs/oura-xcNd5ClA/bin/python",
+    "python.pythonPath": "/home/jen/.local/share/virtualenvs/oura-xcNd5ClA/bin/python",
     "mssql.connections": [
         {
             "server": "localhost",
@@ -27,7 +27,7 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "explorer.confirmDragAndDrop": false,
-    "powershell.scriptAnalysis.settingsPath": "/home/jon/code/PsScriptSettings.psd1",
+    "powershell.scriptAnalysis.settingsPath": "/home/jen/code/PsScriptSettings.psd1",
     "breadcrumbs.enabled": true,
     "workbench.editor.enablePreview": false,
     "vim.handleKeys": {

@@ -1,9 +1,9 @@
 
-Import-Module '/home/jon/.local/share/powershell/Modules/posh-git/1.0.0/posh-git.psd1'
+Import-Module '/home/jen/.local/share/powershell/Modules/posh-git/1.0.0/posh-git.psd1'
 
-$env:Path += ";C:\Users\jon\AppData\Local\Programs\Python\Python38"
-$env:Path += ";C:\Users\jon\AppData\Local\Programs\Python\Python38\Scripts"
-$env:Path += ";C:\Users\jon\Downloads\nvim-win64\Neovim\bin"
+$env:Path += ";C:\Users\jen\AppData\Local\Programs\Python\Python38"
+$env:Path += ";C:\Users\jen\AppData\Local\Programs\Python\Python38\Scripts"
+$env:Path += ";C:\Users\jen\Downloads\nvim-win64\Neovim\bin"
 $env:Path += ";C:\Program Files\Notepad++"
 
 function gs { git status }
