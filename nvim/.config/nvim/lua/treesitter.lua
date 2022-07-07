@@ -1,4 +1,5 @@
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"lua", "vim", "python", "json", "markdown", "html"},
   highlight = {
     enable = true,
   },
@@ -38,4 +39,16 @@ require'nvim-treesitter.configs'.setup {
         ["[]"] = "@class.outer",
       },
     },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+      enable = true
+  },
 }

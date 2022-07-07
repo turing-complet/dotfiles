@@ -35,6 +35,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 
+Plug 'mfussenegger/nvim-dap'
+
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/tagbar.vim

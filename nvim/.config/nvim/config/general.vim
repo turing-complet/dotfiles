@@ -43,8 +43,8 @@ xnoremap p pgvy
 " enable pasting to actually work
 set pastetoggle=<F2>
 
-set foldmethod=indent
-set foldlevel=99
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 "tab completion on sub folders
 set path +=**

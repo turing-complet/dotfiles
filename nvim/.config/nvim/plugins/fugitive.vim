@@ -5,3 +5,4 @@ nnoremap <leader>gi :Git rebase -i
 nnoremap <leader>gdf :Gdiffsplit<CR>
 nnoremap <leader>gc :Git commit
 nnoremap <leader>gpf :Git push -f origin HEAD
+nnoremap <leader>gp :Git push origin HEAD
