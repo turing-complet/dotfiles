@@ -22,6 +22,8 @@
 	forget = reset --hard HEAD
 	nvm = reset --hard HEAD
     ri = rebase -i
+    diffc = diff --cached
+    diffw = diff --word-diff
 	lsfiles = !"lsfiles() { git diff-tree --no-commit-id --name-only -r $1;  }; lsfiles"
 
 	##### from https://github.com/jessfraz/dotfiles/blob/master/.gitconfig
@@ -47,6 +49,19 @@
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 
 	new = !"switch() { git branch -m old; git checkout -b $1 $2; git branch -D old; }; switch"
+
+    release = !"f() { git log --since \"$1\" --no-merges --format=\"%s (%aN)\" | sort; }; f"
+
+    default =  !"git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+
+    # https://github.com/durdn/cfg/blob/master/.gitconfig
+    lasttag = describe --tags --abbrev=0
+    lt = describe --tags --abbrev=0
+    filelog = log -u
+    fl = log -u
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
+
 
 	##########
 
