@@ -96,8 +96,8 @@ alias vim=nvim
 alias zshconfig="vim ~/.zshrc"
 alias gs="git status"
 alias gb="git branch -vv"
-alias python=python3.9
-alias python3=python3.9
+alias python=python3.10
+alias python3=python3.10
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
@@ -106,6 +106,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
+
+alias fman="compgen -c | fzf | xargs man"
+alias friture=friture-0.49-20220316.AppImage
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

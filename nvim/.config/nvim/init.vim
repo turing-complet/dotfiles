@@ -36,12 +36,14 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 
 Plug 'mfussenegger/nvim-dap'
+Plug 'theacodes/witchhazel'
+
 
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/tagbar.vim
 source ~/.config/nvim/plugins/gruvbox.vim
-source ~/.config/nvim/plugins/auto-pairs.vim
+" source ~/.config/nvim/plugins/auto-pairs.vim
 source ~/.config/nvim/plugins/vim-test.vim
 source ~/.config/nvim/plugins/which-key.vim
 source ~/.config/nvim/plugins/ipython-cell.vim
@@ -54,6 +56,8 @@ call plug#end()
 
 set background=dark
 colorscheme gruvbox
+colorscheme witchhazel
+
 
 " let g:python3_host_prog = '~/.pyenv/versions/venv-tools/bin/python'
 let g:python3_host_prog = '~/code/.env/bin/python'
