@@ -1,118 +1,123 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# ╭──────────────────────────────╮
+# │       🌙 ZSH Config ✨       │
+# ╰──────────────────────────────╯
+
+# Add Homebrew Zsh functions path to FPATH
+export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
+
+# --- Shell Options ---
+export EDITOR="nvim"                          # Set default editor to Neovim
+setopt autocd                                # cd into directories without typing 'cd'
+setopt correct                               # auto-correct small typos in commands
+setopt histignorealldups                     # only keep latest duplicate in history
+setopt share_history                         # share history between sessions
+
+# --- Keybindings (Vi Mode) ---
+bindkey -v                                    # Use vi keybindings (Insert/Normal mode)
+export KEYTIMEOUT=1                           # Reduce delay when switching modes
+
+# Make sure zle is loaded for keybinding customization
+#autoload -Uz zle
+#autoload -Uz add-zsh-hook
+
+# Safely force vi mode to start in insert mode
+#function zle-line-init() {
+#  [[ -o zle ]] && zle -K viins
+#}
+#add-zsh-hook precmd zle-line-init
+
+# --- Essential Keybindings ---
+# Arrow keys (insert + command mode)
+bindkey -M viins '^[[A' up-line-or-history
+bindkey -M viins '^[[B' down-line-or-history
+bindkey -M viins '^[[C' forward-char
+bindkey -M viins '^[[D' backward-char
+bindkey -M vicmd '^[[A' up-line-or-history
+bindkey -M vicmd '^[[B' down-line-or-history
+bindkey -M vicmd '^[[C' forward-char
+bindkey -M vicmd '^[[D' backward-char
+
+# Backspace & Delete
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' delete-char
+
+# Home / End
+bindkey -M viins '^[[H' beginning-of-line
+bindkey -M viins '^[[F' end-of-line
+
+# Word-wise motion (Alt-b / Alt-f)
+bindkey -M viins '^[b' backward-word
+bindkey -M viins '^[f' forward-word
+
+# --- Completion & Suggestions ---
+zstyle ':completion:*' menu select            # Tab completion with menu
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**'
+
+# History search with up/down arrows (like bash)
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+# --- Plugins ---
+ZSH_PLUGINS_DIR="${HOME}/.zsh_plugins"
+INSTALL_SCRIPT="${HOME}/.zsh/install_plugins.zsh"
+
+# Run install_plugins.zsh only if plugins aren't installed yet
+if [[ ! -d "$ZSH_PLUGINS_DIR/zsh-autosuggestions" || ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]]; then
+  echo "🍓 Setting up your plugins for the first time..."
+  [[ -x "$INSTALL_SCRIPT" ]] && "$INSTALL_SCRIPT"
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
-export ZSH="$HOME/.oh-my-zsh"
+# --- Completion system (AFTER plugins and bindkeys)
+autoload -Uz compinit && compinit
 
-ZSH_AUTOSUGGEST=$ZSH/custom/plugins/zsh-autosuggestions 
-if [[ ! -d $ZSH_AUTOSUGGEST ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGEST
-fi
 
-ZSH_P10K=$ZSH/custom/themes/powerlevel10k
-if [[ ! -d $ZSH_P10K ]]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_P10K
-fi
+# TODO find out why visual mode doesn't work
+function zle-line-init zle-keymap-select {
+  case $KEYMAP in
+    vicmd) mode="[ N ]" ;;
+    viins|main) mode="[ I ]" ;;
+    vivis) mode="[ V ]" ;;
+    *) mode="[ ??? ]" ;;
+  esac
+  RPS1="$mode"
+  RPS2="$RPS1"
+  zle reset-prompt
+}
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="hearts"
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# --- Prompt Setup ---
+autoload -Uz colors && colors
+setopt PROMPT_SUBST
 autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info  }
-precmd_functions+=( precmd_vcs_info  )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+
+# vcs_info configuration (only once)
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '(%b)'       # Show current Git branch
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+precmd() { 
+  vcs_info
+}
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Prompt formats
+# PROMPT='%F{magenta}☾%f %F{blue}%n@%m%f %F{cyan}%~%f $(git_prompt_info) > '
+PROMPT='%F{magenta}🌙%f %F{blue}%n@%m%f %F{cyan}%~%f $(git_prompt_info) > '
+RPROMPT='${vi_mode_indicator} %F{white}%*%f'
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Git prompt info function
+function git_prompt_info() {
+  echo $vcs_info_msg_0_
+}
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# --- Aliases ---
+alias la='ls -lah'
+alias ll='ls -lh'
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
-alias nvim=~/code/nvim.appimage
-alias vim=nvim
-alias zshconfig="vim ~/.zshrc"
-alias gs="git status"
-alias gb="git branch -vv"
-alias python=python3.10
-alias python3=python3.10
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-export PYTHONBREAKPOINT=ipdb.set_trace
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
-
-alias fman="compgen -c | fzf | xargs man"
-alias friture=friture-0.49-20220316.AppImage
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-ZSH_SECRET=$HOME/secrets.zsh
-[[ ! -f $ZSH_SECRET ]] || source $ZSH_SECRET
