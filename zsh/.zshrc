@@ -8,6 +8,8 @@ setopt autocd                                # cd into directories without typin
 setopt correct                               # auto-correct small typos in commands
 setopt histignorealldups                     # only keep latest duplicate in history
 setopt share_history                         # share history between sessions
+setopt equals
+
 
 # --- Keybindings (Vi Mode) ---
 bindkey -v                                    # Use vi keybindings (Insert/Normal mode)
@@ -103,9 +105,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats '(%b)'       # Show current Git branch
 
-precmd() { 
-  vcs_info
-}
+precmd() { vcs_info }
 
 # Prompt formats
 # PROMPT='%F{magenta}☾%f %F{blue}%n@%m%f %F{cyan}%~%f $(git_prompt_info) > '
@@ -120,4 +120,14 @@ function git_prompt_info() {
 # --- Aliases ---
 alias la='ls -lah'
 alias ll='ls -lh'
+
+# eval export HOMEBREW_PREFIX="/opt/homebrew";
+# export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+# export HOMEBREW_REPOSITORY="/opt/homebrew";
+# fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+# PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Applications/Ghostty.app/Contents/MacOS"; export PATH;
+# [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+# export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 

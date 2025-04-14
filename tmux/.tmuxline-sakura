@@ -1,0 +1,35 @@
+# Enable the status bar
+set -g status on
+
+# Colors + layout
+set -g status-interval 10
+set -g status-justify left
+
+# Left side: session name with a heart
+set -g status-left-length 20
+set -g status-left "🔮 #S "
+
+# 🌑 Sakura Night
+set -g status-style "bg=#2a1f2d,fg=#ffd5ec"   # near-black with sakura pink text
+
+# 🍇 Grape Dust
+set -g status-style "bg=#3b2d4a,fg=#d6b4fc"   # muted purple bg, pastel lilac fg
+
+
+# Right side: time, date
+set -g status-right-length 60
+set -g status-right "🫧 %a %b %d | %H:%M 🫧"
+
+# Pane borders
+set -g pane-border-style "fg=#f4b6c2"           # soft pink
+set -g pane-active-border-style "fg=#ff69b4"    # hot pink for active
+
+# Window styles
+set -g window-status-format "  #I:#W  "
+set -g window-status-style "fg=#a97aa3,bg=default"
+set -g window-status-current-style "fg=#ffffff,bg=#d291bc,bold"
+
+# Message styling (like prompts)
+set -g message-style "bg=#ffe4f0,fg=#5e3a53"
+set -g message-command-style "bg=#d291bc,fg=#ffffff"
+
