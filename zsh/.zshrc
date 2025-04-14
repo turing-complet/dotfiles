@@ -2,9 +2,6 @@
 # │       🌙 ZSH Config ✨       │
 # ╰──────────────────────────────╯
 
-# Add Homebrew Zsh functions path to FPATH
-export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
-
 # --- Shell Options ---
 export EDITOR="nvim"                          # Set default editor to Neovim
 setopt autocd                                # cd into directories without typing 'cd'
@@ -16,15 +13,6 @@ setopt share_history                         # share history between sessions
 bindkey -v                                    # Use vi keybindings (Insert/Normal mode)
 export KEYTIMEOUT=1                           # Reduce delay when switching modes
 
-# Make sure zle is loaded for keybinding customization
-#autoload -Uz zle
-#autoload -Uz add-zsh-hook
-
-# Safely force vi mode to start in insert mode
-#function zle-line-init() {
-#  [[ -o zle ]] && zle -K viins
-#}
-#add-zsh-hook precmd zle-line-init
 
 # --- Essential Keybindings ---
 # Arrow keys (insert + command mode)
@@ -63,6 +51,9 @@ zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
+bindkey '^R' history-incremental-search-backward
+
+
 # --- Plugins ---
 ZSH_PLUGINS_DIR="${HOME}/.zsh_plugins"
 INSTALL_SCRIPT="${HOME}/.zsh/install_plugins.zsh"
@@ -74,8 +65,17 @@ if [[ ! -d "$ZSH_PLUGINS_DIR/zsh-autosuggestions" || ! -d "$ZSH_PLUGINS_DIR/zsh-
 fi
 
 
+# https://github.com/Phantas0s/.dotfiles/blob/cb761b6a72e3593881dea6c0e922c71d0b6b81aa/zsh/completion.zsh
 # --- Completion system (AFTER plugins and bindkeys)
 autoload -Uz compinit && compinit
+
+# setopt GLOB_COMPLETE      # Show autocompletion menu with globs
+setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
+
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' menu select
 
 
 # TODO find out why visual mode doesn't work
