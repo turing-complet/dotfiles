@@ -10,6 +10,8 @@ setopt histignorealldups                     # only keep latest duplicate in his
 setopt share_history                         # share history between sessions
 setopt equals
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 
 # --- Keybindings (Vi Mode) ---
 bindkey -v                                    # Use vi keybindings (Insert/Normal mode)
@@ -41,9 +43,6 @@ bindkey -M viins '^[[F' end-of-line
 bindkey -M viins '^[b' backward-word
 bindkey -M viins '^[f' forward-word
 
-# --- Completion & Suggestions ---
-zstyle ':completion:*' menu select            # Tab completion with menu
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**'
 
 # History search with up/down arrows (like bash)
 autoload -Uz up-line-or-beginning-search
@@ -53,7 +52,9 @@ zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
-bindkey '^R' history-incremental-search-backward
+source <(fzf --zsh)
+# bindkey '^R' history-incremental-search-backward
+bindkey '^R' fzf-history-widget
 
 
 # --- Plugins ---
@@ -78,6 +79,7 @@ setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
 
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**'
 
 
 # TODO find out why visual mode doesn't work
@@ -121,13 +123,28 @@ function git_prompt_info() {
 alias la='ls -lah'
 alias ll='ls -lh'
 
-# eval export HOMEBREW_PREFIX="/opt/homebrew";
-# export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-# export HOMEBREW_REPOSITORY="/opt/homebrew";
-# fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
-# PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Applications/Ghostty.app/Contents/MacOS"; export PATH;
-# [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
-# export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+alias tree='tree -a -I .git'
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# -S truncate long lines instead of wrap
+# -R enable colors and links
+# -N line numbers
+# -I case insensitive search
+# #.1 horizontal scroll speed = 1/10 of screen
+export LESS='-SRN -#.1 --ignore-case --mouse --wheel-lines=5'
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+
+#  --color="bg+:-1,\
+# fg:gray,\
+# fg+:white,\
+# border:black,\
+# spinner:0,\
+# hl:yellow,\
+# header:blue,\
+# info:green,\
+# pointer:red,\
+# marker:blue,\
+# prompt:gray,\
+# hl+:red"
+
 

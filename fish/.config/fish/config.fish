@@ -7,7 +7,7 @@ function weather
 end
 
 set -x PYTHONBREAKPOINT ipdb.set_trace
-set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
 
 alias nvim=~/code/nvim.appimage
 
