@@ -79,12 +79,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**'
 # TODO find out why visual mode doesn't work
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
-    vicmd) mode="[ N ]" ;;
-    viins|main) mode="[ I ]" ;;
-    vivis) mode="[ V ]" ;;
-    *) mode="[ ??? ]" ;;
+    vicmd) mode="[N]" ;;
+    viins|main) mode="[I]" ;;
+    vivis) mode="[V]" ;;
+    *) mode="[?]" ;;
   esac
-  RPS1="$mode"
+  # use %F{white}%*%f instead for white text
+  # RPS1="$mode %D{%H:%M:%S} "
+  RPS1="$mode %*%f "
   RPS2="$RPS1"
   zle reset-prompt
 }
@@ -103,10 +105,7 @@ zstyle ':vcs_info:git:*' formats '(%b)'       # Show current Git branch
 
 precmd() { vcs_info }
 
-# Prompt formats
-# PROMPT='%F{magenta}☾%f %F{blue}%n@%m%f %F{cyan}%~%f $(git_prompt_info) > '
 PROMPT='%F{magenta}🌙%f %F{blue}%n@%m%f %F{cyan}%~%f $(git_prompt_info) > '
-RPROMPT='${vi_mode_indicator} %F{white}%*%f'
 
 # Git prompt info function
 function git_prompt_info() {
