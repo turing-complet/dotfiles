@@ -127,6 +127,10 @@ export LESS='-SRN -#.1 --ignore-case --mouse --wheel-lines=5'
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+
 #  --color="bg+:-1,\
 # fg:gray,\
 # fg+:white,\
