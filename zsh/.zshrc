@@ -64,7 +64,7 @@ INSTALL_SCRIPT="${HOME}/.zsh/install_plugins.zsh"
 # Run install_plugins.zsh only if plugins aren't installed yet
 if [[ ! -d "$ZSH_PLUGINS_DIR/zsh-autosuggestions" || ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]]; then
   echo "🍓 Setting up your plugins for the first time..."
-  [[ -x "$INSTALL_SCRIPT" ]] && "$INSTALL_SCRIPT"
+  source $INSTALL_SCRIPT
 fi
 
 

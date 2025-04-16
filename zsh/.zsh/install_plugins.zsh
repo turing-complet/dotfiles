@@ -9,6 +9,8 @@ typeset -A plugins
 plugins=(
   zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git
   zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git
+  zsh-completions https://github.com/zsh-users/zsh-completions
+  zsh-z https://github.com/agkozak/zsh-z.git
 )
 
 echo "🔧 Checking your plugin collection..."
@@ -26,7 +28,7 @@ done
 # ✨ Source the plugins so everything’s ready right away
 echo "☁️ refreshing plugins ..."
 for plugin in "${(@k)plugins}"; do
-  plugin_file="${ZSH_PLUGINS_DIR}/${plugin}/${plugin}.zsh"
+  plugin_file="${ZSH_PLUGINS_DIR}/${plugin}/${plugin}.plugin.zsh"
   if [[ -r "$plugin_file" ]]; then
     source "$plugin_file"
     echo "🧼 Loaded $plugin!"
