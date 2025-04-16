@@ -13,17 +13,19 @@ plugins=(
   zsh-z https://github.com/agkozak/zsh-z.git
 )
 
-echo "🔧 Checking your plugin collection..."
 
-for name url in ${(kv)plugins}; do
-  plugin_dir="${ZSH_PLUGINS_DIR}/${name}"
-  if [[ -d "$plugin_dir/.git" ]]; then
-    echo "🌱We have $name at home."
-  else
-    echo "🌸 Cloning $name from $url..."
-    git clone --depth 1 "$url" "$plugin_dir"
-  fi
-done
+if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
+  echo "🍓 Setting up your plugins for the first time..."
+  for name url in ${(kv)plugins}; do
+    plugin_dir="${ZSH_PLUGINS_DIR}/${name}"
+    if [[ -d "$plugin_dir/.git" ]]; then
+      echo "🌱We have $name at home."
+    else
+      echo "🌸 Cloning $name from $url..."
+      git clone --depth 1 "$url" "$plugin_dir"
+    fi
+  done
+fi
 
 # ✨ Source the plugins so everything’s ready right away
 echo "☁️ refreshing plugins ..."

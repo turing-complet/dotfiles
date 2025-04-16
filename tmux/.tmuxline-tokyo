@@ -1,0 +1,33 @@
+# Enable the status bar
+set -g status on
+
+# Colors + layout
+set -g status-interval 10
+set -g status-justify left
+
+# Left side: session name with icon
+set -g status-left-length 20
+set -g status-left " #S "
+
+# 🌌 Tokyo Storm Night
+set -g status-style "bg=#24283b,fg=#c0caf5"   # dark bg, light blue text
+
+# 💙 Blue Fog
+# set -g status-style "bg=#1f2335,fg=#7aa2f7"   # optional alt: slightly darker bg, vivid blue text
+
+# Right side: time, date
+set -g status-right-length 60
+set -g status-right " %a %b %d | %H:%M "
+
+# Pane borders
+set -g pane-border-style "fg=#565f89"           # muted gray-blue
+set -g pane-active-border-style "fg=#7aa2f7"    # brighter blue
+
+# Window styles
+set -g window-status-format "  #I:#W  "
+set -g window-status-style "fg=#9aa5ce,bg=default"     # light slate
+set -g window-status-current-style "fg=#ffffff,bg=#7aa2f7,bold"  # bright blue
+
+# Message styling (like prompts)
+set -g message-style "bg=#1a1b26,fg=#9ece6a"            # deep bg, green text
+set -g message-command-style "bg=#7aa2f7,fg=#1a1b26"    # blue bg, dark fg

@@ -58,14 +58,8 @@ bindkey '^R' fzf-history-widget
 
 
 # --- Plugins ---
-ZSH_PLUGINS_DIR="${HOME}/.zsh_plugins"
 INSTALL_SCRIPT="${HOME}/.zsh/install_plugins.zsh"
-
-# Run install_plugins.zsh only if plugins aren't installed yet
-if [[ ! -d "$ZSH_PLUGINS_DIR/zsh-autosuggestions" || ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]]; then
-  echo "🍓 Setting up your plugins for the first time..."
-  source $INSTALL_SCRIPT
-fi
+source $INSTALL_SCRIPT
 
 
 # https://github.com/Phantas0s/.dotfiles/blob/cb761b6a72e3593881dea6c0e922c71d0b6b81aa/zsh/completion.zsh
