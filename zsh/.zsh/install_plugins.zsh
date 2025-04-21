@@ -3,7 +3,6 @@
 # 🌼 Plugin installer
 
 ZSH_PLUGINS_DIR="${HOME}/.zsh_plugins"
-mkdir -p "$ZSH_PLUGINS_DIR"
 
 typeset -A plugins
 plugins=(
@@ -14,8 +13,9 @@ plugins=(
 )
 
 
-if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
+if [[ ! -d "$ZSH_PLUGINS_DIR" ]]; then
   echo "🍓 Setting up your plugins for the first time..."
+  mkdir -p "$ZSH_PLUGINS_DIR"
   for name url in ${(kv)plugins}; do
     plugin_dir="${ZSH_PLUGINS_DIR}/${name}"
     if [[ -d "$plugin_dir/.git" ]]; then

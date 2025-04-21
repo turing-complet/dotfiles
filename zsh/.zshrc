@@ -130,6 +130,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
+setopt EXTENDED_HISTORY
+
 
 #  --color="bg+:-1,\
 # fg:gray,\
