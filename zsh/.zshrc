@@ -56,6 +56,10 @@ source <(fzf --zsh)
 # bindkey '^R' history-incremental-search-backward
 bindkey '^R' fzf-history-widget
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^E' edit-command-line
+
 
 # --- Plugins ---
 INSTALL_SCRIPT="${HOME}/.zsh/install_plugins.zsh"
